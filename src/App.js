@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import userPhoto from './img/userPhoto.jpg';
+
+import RealtorsCard from './components/RealtorsCard';
+
+const realtorItems = [{name: 'Джон Березуцкий', photo: userPhoto, location: 'Киев, Россия / GMT+03', description: 'Провожу сделки любой сложности с жилой недвижимостью. Дело своё не знаю. Работаю на откатах. Умею отстоять свои денежные интересы и безопасность...', rating: 23.2, rewievConter: 3, dealsCounter: 123, phone: {compressed: '+79001111111', expanded: '+7-900-111-11-11'}, catigories:['Новостройка', 'Аренда', 'Продажа',  'Коммерческая недвижимость',  'Вторичный рынок',  'Загородная'] },
+                      {name: 'Игорь Волков', photo: userPhoto, location: 'Киев, Россия / GMT+03', description: 'Провожу сделки любой сложности с жилой недвижимостью. Дело своё не знаю. Работаю на откатах. Умею отстоять свои денежные интересы и безопасность...', rating: 23.2, rewievConter: 3, dealsCounter: 456, phone: {compressed: '+79001111111', expanded: '+7-900-111-11-11'}, catigories:['Новостройка', 'Аренда', 'Продажа',  'Коммерческая недвижимость'] },]
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className="container">
+
+        <section className="realtorsCards">
+
+          <div className="realtorsCards__list">
+
+          {realtorItems.map(realtorItem => {
+            return <RealtorsCard {...realtorItem} />
+          })}
+
+
+          </div>
+
+        </section>
+      </div>
     </div>
   );
 }
