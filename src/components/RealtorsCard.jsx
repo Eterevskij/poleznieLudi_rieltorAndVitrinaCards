@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import { HeartFilled } from '@ant-design/icons';
-import '../App.css';
 
 import star from '../icons/star.svg';
 
@@ -93,12 +92,11 @@ const RealtorsCard = (props) => {
 
           <Col>
             <Row className='realtorsCards__list__item__categories mobile'>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item deals">Сделок: 123</p></Col>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">Новостройка</p></Col>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">Аренда</p></Col>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">Коммерческая недвижимость</p></Col>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">Вторичный рынок</p></Col>
-              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">Загородная</p></Col>
+              <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item deals">{`Сделок: ${dealsCounter}`}</p></Col>
+
+              {catigories.map(category => {
+                     return <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item">{category}</p></Col>
+                    })}
             </Row>
           </Col>
 
@@ -130,7 +128,7 @@ const RealtorsCard = (props) => {
                     <Col><div onClick={() => setLike(!isLikeActive)} className="realtorsCards__list__item__feedbackAndContacts__addToFavourite"><HeartFilled className={isLikeActive ? 'active' : ''} /></div></Col>
 
                     <Col>
-                      <span onClick={() => setShow(true)} className={`realtorsCards__list__item__feedbackAndContacts__phone ${isPhoneChown ? 'phone' : 'text'}`}>{isPhoneChown ? <a href="tel:+79001111111">+7-900-111-11-11</a> : 'Показать телефон'}</span>
+                      <span onClick={() => setShow(true)} className={`realtorsCards__list__item__feedbackAndContacts__phone ${isPhoneChown ? 'phone' : 'text'}`}>{isPhoneChown ? <a href={`tel:${phone.compressed}`}>{phone.expanded}</a> : 'Показать телефон'}</span>
                     </Col>
                   </Row>
                 </Col>
