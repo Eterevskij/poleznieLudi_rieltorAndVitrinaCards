@@ -30,7 +30,7 @@ const RealtorsCard = (props) => {
                   <h5 className="realtorsCards__list__item__name">{name}</h5>
                   <p className="realtorsCards__list__item__locationTime">{location}</p>
 
-                  <Row className='realtorsCards__list__item__categories desktop'>
+                  <Row gutter={[8, 8]} className='realtorsCards__list__item__categories desktop'>
                     <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item deals">{`Сделок: ${dealsCounter}`}</p></Col>
 
                     {catigories.map(category => {
