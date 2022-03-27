@@ -91,7 +91,7 @@ const RealtorsCard = (props) => {
         <Row>
 
           <Col>
-            <Row className='realtorsCards__list__item__categories mobile'>
+            <Row gutter={[8, 8]} className='realtorsCards__list__item__categories mobile'>
               <Col className='realtorsCards__list__item__categories__item__wrapper'><p className="realtorsCards__list__item__categories__item deals">{`Сделок: ${dealsCounter}`}</p></Col>
 
               {catigories.map(category => {
@@ -127,7 +127,7 @@ const RealtorsCard = (props) => {
                   <Row align='middle'>
                     <Col><div onClick={() => setLike(!isLikeActive)} className="realtorsCards__list__item__feedbackAndContacts__addToFavourite"><HeartFilled className={isLikeActive ? 'active' : ''} /></div></Col>
 
-                    <Col>
+                    <Col flex="auto" className='realtorsCards__list__item__feedbackAndContacts__phone__wrapper'>
                       <span onClick={() => setShow(true)} className={`realtorsCards__list__item__feedbackAndContacts__phone ${isPhoneChown ? 'phone' : 'text'}`}>{isPhoneChown ? <a href={`tel:${phone.compressed}`}>{phone.expanded}</a> : 'Показать телефон'}</span>
                     </Col>
                   </Row>
